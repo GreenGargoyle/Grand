@@ -7,7 +7,10 @@ extern Grand::Application* Grand::createApplication();
 
 int main(int argc, char** argv)
 {
-	printf("Grand Engine\n");
+	Grand::Log::init();
+	GRAND_CORE_WARN("Initialised Log!");
+	GRAND_INFO("Hello!");
+
 	auto app = Grand::createApplication();
 	app->run();
 	delete app;
