@@ -13,9 +13,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Grand/vendor/GLFW/include"
+IncludeDir["Glad"] = "Grand/vendor/Glad/include"
 
 -- This includes the premake5 file in the GLFW folder into here.
 include "Grand/vendor/GLFW"
+-- Glad -- 
+include "Grand/vendor/Glad"
 
 project "Grand"
 	location "Grand"
@@ -38,12 +41,14 @@ project "Grand"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +60,8 @@ project "Grand"
 		defines
 		{
 			"GRAND_PLATFORM_WINDOWS",
-			"GRAND_BUILD_DLL"
+			"GRAND_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -65,14 +71,18 @@ project "Grand"
 
 	filter "configurations:Debug"
 		defines "GRAND_DEBUG"
+		-- MDd = Multi-Threaded Debug -- 
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GRAND_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GRAND_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 
@@ -113,14 +123,17 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "GRAND_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "GRAND_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "GRAND_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 	

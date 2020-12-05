@@ -45,6 +45,8 @@ namespace Grand
 		virtual int getCategoryFlags() const = 0;
 		virtual std::string toString() const { return getName(); }
 
+		inline bool isHandled() { return m_Handled; }
+
 		inline bool isInCategory(EventCategory category)
 		{
 			return getCategoryFlags() & category;

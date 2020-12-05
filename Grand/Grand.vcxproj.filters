@@ -37,6 +37,12 @@
     <ClInclude Include="src\Grand\Events\MouseEvent.h">
       <Filter>Grand\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Grand\Layer.h">
+      <Filter>Grand</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Grand\LayerStack.h">
+      <Filter>Grand</Filter>
+    </ClInclude>
     <ClInclude Include="src\Grand\Log.h">
       <Filter>Grand</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Grand\Application.cpp">
+      <Filter>Grand</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Grand\Layer.cpp">
+      <Filter>Grand</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Grand\LayerStack.cpp">
       <Filter>Grand</Filter>
     </ClCompile>
     <ClCompile Include="src\Grand\Log.cpp">

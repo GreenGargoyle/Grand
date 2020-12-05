@@ -3,6 +3,7 @@
 // For use by Grand applications.
 #include <stdio.h>
 #include "Grand/Application.h"
+#include "Grand/Layer.h"
 #include "Grand/Log.h"
 
 // ---Entry Point----------------------------
